@@ -13,6 +13,7 @@ class FullPost extends React.Component {
     if (!this.props.id) {
       return;
     }
+    
     if (this.state.loadedPost && this.state.loadedPost.id === this.props.id) {
       return;
     }
