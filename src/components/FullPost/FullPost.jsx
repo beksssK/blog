@@ -1,8 +1,6 @@
 import React from "react";
 import "./FullPost.css";
 import axios from "axios";
-import { BASE_URL } from "../../containers/Blog/Blog";
-
 
 class FullPost extends React.Component {
   state = {
@@ -17,9 +15,15 @@ class FullPost extends React.Component {
     if (this.state.loadedPost && this.state.loadedPost.id === this.props.id) {
       return;
     }
-    axios.get(BASE_URL + "posts/" + this.props.id).then(response => {
+    axios.get("/posts/" + this.props.id).then(response => {
       this.setState({loadedPost: response.data});
     });
+    const data = new FormData();
+    data.append("title", "some title");
+    data.append("text", "some funny text");
+    data.append("author", "Beks");
+    console.log(data);
+    
   }
   
   render() {

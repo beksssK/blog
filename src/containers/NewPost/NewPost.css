@@ -1,0 +1,14 @@
+.Form {
+  max-width: 500px;
+  padding: 20px;
+}
+
+.Fields {
+  display: flex;
+  flex-direction: column;
+}
+.Fields input,
+.Fields textarea {
+  margin: 30px 0;
+  padding: 10px 15px;
+}

@@ -1,24 +1,15 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import "./Post.css";
+import { parseISO } from "date-fns";
 
-class Post extends PureComponent {
-  componentDidMount() {
-    console.log("[Post] DidMount");
-  }
-  componentDidUpdate() {
-    console.log("[Post] DidUpdate");
-  }
-  render() {
-    console.log("[Post] render");
-    return (
-      <article onClick={this.props.clicked} className="Post">
-        <h1>{this.props.title}</h1>
-        <div className="Info">
-          <div className="Author">Name: {this.props.author}</div>
-        </div>
-      </article>
-    );
-  }
+const Post = (props) => {
+  return (
+    <div key={props.id} className="Post">
+      <div className="postDate">{parseISO(props.date).toDateString()}</div>
+      <h3>{props.title}</h3>
+      <button className="Button">Read More</button>
+    </div>
+  )
 }
 
 export default Post;
